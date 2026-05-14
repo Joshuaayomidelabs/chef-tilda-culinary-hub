@@ -9,24 +9,20 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-cream px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <h1 className="font-serif text-7xl text-burgundy">404</h1>
+        <h2 className="mt-4 font-serif text-2xl text-charcoal">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">The page you're looking for has wandered off the menu.</p>
+        <Link to="/" className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-burgundy px-6 py-3 text-sm font-medium text-primary-foreground shadow-luxury">
+          Back to home
+        </Link>
       </div>
     </div>
   );
@@ -35,33 +31,17 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-cream px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
-        </div>
+        <h1 className="font-serif text-2xl text-burgundy">Something went wrong</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Please try again in a moment.</p>
+        <button
+          onClick={() => { router.invalidate(); reset(); }}
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-burgundy px-6 py-3 text-sm font-medium text-primary-foreground"
+        >
+          Try again
+        </button>
       </div>
     </div>
   );
@@ -72,19 +52,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Chef Tilda's Culinary School — Premier Culinary Institute in Lagos" },
+      { name: "description", content: "Premium Nigerian culinary academy offering professional catering, baking, pastry, mixology and food business training in Lagos. Turn your passion into profit." },
+      { name: "author", content: "Chef Tilda's Culinary School" },
+      { name: "theme-color", content: "#581c2e" },
+      { property: "og:title", content: "Chef Tilda's Culinary School — Lagos" },
+      { property: "og:description", content: "Hands-on culinary training, certification and food business mentorship in Lagos, Nigeria." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Chef Tilda's Culinary School" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          name: "Chef Tilda's Culinary School",
+          description: "Premier culinary, catering and food business training institute in Lagos, Nigeria.",
+          telephone: "+234 904 337 5328",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "6 Aje Street, Ponle Bus Stop, Off Egbeda-Iyana Ipaja Road",
+            addressLocality: "Lagos",
+            addressCountry: "NG",
+          },
+        }),
       },
     ],
   }),
@@ -110,10 +109,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Navbar />
+      <main className="pt-20">
+        <Outlet />
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
     </QueryClientProvider>
   );
 }
