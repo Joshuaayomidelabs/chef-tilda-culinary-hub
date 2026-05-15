@@ -73,7 +73,7 @@ function HomePage() {
         <div className="absolute top-1/4 right-10 w-72 h-72 rounded-full bg-gold/20 blur-3xl animate-float" />
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 rounded-full bg-burgundy/30 blur-3xl" />
 
-        <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20">
+        <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-24 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -127,18 +127,19 @@ function HomePage() {
           </motion.div>
         </div>
 
-        {/* stats bar */}
-        <div className="absolute bottom-0 inset-x-0 z-10">
-          <div className="container mx-auto px-4 pb-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 glass-light rounded-2xl p-4 shadow-luxury">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center px-2 py-2">
-                  <s.icon className="mx-auto text-burgundy mb-1" size={20} />
-                  <div className="font-serif text-xl md:text-2xl text-burgundy">{s.value}</div>
-                  <div className="text-[10px] md:text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
-                </div>
-              ))}
-            </div>
+      </section>
+
+      {/* STATS */}
+      <section className="bg-cream py-10 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-card rounded-2xl p-6 shadow-luxury">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center px-2">
+                <s.icon className="mx-auto text-burgundy mb-2" size={22} />
+                <div className="font-serif text-2xl md:text-3xl text-burgundy">{s.value}</div>
+                <div className="text-[10px] md:text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
