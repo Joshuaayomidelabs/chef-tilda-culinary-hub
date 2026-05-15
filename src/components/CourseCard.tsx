@@ -20,6 +20,9 @@ export function CourseCard({ course, index = 0 }: { course: Course; index?: numb
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
         <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold text-burgundy text-xs font-semibold">{course.level}</span>
+        {course.format === "Online" && (
+          <span className="absolute top-14 left-4 px-3 py-1 rounded-full bg-burgundy text-primary-foreground text-[10px] uppercase tracking-wider font-semibold">Online</span>
+        )}
         <div className="absolute top-4 right-4 glass text-primary-foreground px-3 py-1 rounded-full text-xs flex items-center gap-1">
           <Clock size={12} /> {course.duration}
         </div>
