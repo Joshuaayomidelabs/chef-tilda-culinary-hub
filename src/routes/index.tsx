@@ -57,7 +57,7 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-burgundy" />
         <div
           className="absolute inset-0 opacity-40"

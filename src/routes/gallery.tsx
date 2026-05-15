@@ -10,6 +10,15 @@ import mixology from "@/assets/course-mixology.jpg";
 import pastry from "@/assets/course-pastry.jpg";
 import students1 from "@/assets/students-cooking.jpg";
 import students2 from "@/assets/students-spread.jpg";
+import teamSpread from "@/assets/ctcs-team-spread.jpg";
+import studentNotes from "@/assets/ctcs-student-notes.jpg";
+import graduation from "@/assets/ctcs-graduation.jpg";
+import weddingCakes from "@/assets/ctcs-wedding-cakes.jpg";
+import fondantClass from "@/assets/ctcs-fondant-class.jpg";
+import chefsTraining from "@/assets/ctcs-chefs-training.jpg";
+import chefCake from "@/assets/ctcs-chef-cake.jpg";
+import pastryRolling from "@/assets/ctcs-pastry-rolling.jpg";
+import cateringSpread from "@/assets/ctcs-catering-spread.jpg";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/gallery")({
@@ -26,16 +35,25 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const images = [
-  { src: students2, alt: "International cuisine spread", span: "row-span-2" },
-  { src: cake, alt: "Decorated celebration cake", span: "row-span-2" },
+  { src: cateringSpread, alt: "Full catering class spread", span: "row-span-2 col-span-2" },
+  { src: weddingCakes, alt: "Luxury wedding cake collection", span: "row-span-2" },
+  { src: graduation, alt: "Graduation day with certificates", span: "col-span-2" },
+  { src: teamSpread, alt: "CTCS chefs with finished pastries", span: "col-span-2" },
+  { src: chefCake, alt: "Chef-themed sculpted cake", span: "row-span-2" },
+  { src: fondantClass, alt: "Fondant cake decorating class", span: "" },
+  { src: chefsTraining, alt: "Chefs in pastry training", span: "" },
+  { src: pastryRolling, alt: "Student rolling pastry", span: "" },
+  { src: studentNotes, alt: "Student taking class notes", span: "" },
+  { src: students2, alt: "International cuisine spread", span: "" },
+  { src: cake, alt: "Decorated celebration cake", span: "" },
   { src: jollof, alt: "Plated jollof rice", span: "" },
   { src: smallchops, alt: "Small chops platter", span: "" },
-  { src: catering, alt: "Catering event", span: "col-span-2" },
+  { src: catering, alt: "Catering event", span: "" },
   { src: egusi, alt: "Nigerian egusi", span: "" },
   { src: continental, alt: "Continental fine dining", span: "" },
   { src: mixology, alt: "Cocktail mixology", span: "" },
   { src: pastry, alt: "Tiered pastry", span: "" },
-  { src: students1, alt: "Students cooking", span: "col-span-2" },
+  { src: students1, alt: "Students cooking", span: "" },
 ];
 
 function GalleryPage() {
