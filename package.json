@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000 --host 0.0.0.0",
-    "build": "NITRO_PRESET=vercel vite build",
-    "build:dev": "NITRO_PRESET=vercel vite build --mode development",
+    "build": "cross-env NODE_ENV=production vite build",
+    "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
@@ -70,10 +70,12 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@lovable.dev/vite-tanstack-config": "^1.7.0",
+    "@tanstack/react-start-plugin": "^1.131.50",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
+    "cross-env": "^10.1.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",

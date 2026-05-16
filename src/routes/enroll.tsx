@@ -241,10 +241,6 @@ function Field({
         {required && <span className="text-burgundy"> *</span>}
       </span>
       {children}
-      <style>{`
-        .input { width: 100%; padding: 0.7rem 1rem; border-radius: 0.75rem; background: var(--color-input); color: var(--color-foreground); border: 1px solid var(--color-border); font-size: 0.9rem; transition: all .2s; }
-        .input:focus { outline: none; border-color: var(--color-gold); box-shadow: 0 0 0 3px oklch(0.78 0.14 80 / 0.2); }
-      `}</style>
     </label>
   );
 }
