@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 
-
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },

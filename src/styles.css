@@ -183,7 +183,9 @@
     border-radius: var(--radius-md);
     background-color: var(--color-input);
     border: 1px solid var(--color-border);
-    transition: border-color 0.2s, outline 0.2s;
+    transition:
+      border-color 0.2s,
+      outline 0.2s;
   }
   .input:focus {
     border-color: var(--color-gold);

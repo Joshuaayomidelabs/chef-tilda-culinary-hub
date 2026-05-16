@@ -4,5 +4,5 @@ export interface Course {
   description: string;
   price: number;
   duration: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  level: "Beginner" | "Intermediate" | "Advanced";
 }
